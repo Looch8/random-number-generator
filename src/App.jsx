@@ -1,41 +1,11 @@
-import { useState } from "react";
 import "./App.css";
-
-function MinValue() {
-	const [minValue, setMinValue] = useState(0);
-
-	const handleMinAmount = () => {
-		return setMinValue(minValue + 1);
-	};
-
-	return (
-		<>
-			<h3>Min number: {minValue}</h3>{" "}
-			<button onClick={handleMinAmount}>Increase value</button>
-		</>
-	);
-}
-
-function MaxValue() {
-	const [maxValue, setMaxValue] = useState(0);
-
-	const handleMaxAmount = () => {
-		return setMaxValue(maxValue + 1);
-	};
-
-	return (
-		<>
-			<h3>Max number: {maxValue}</h3>{" "}
-			<button onClick={handleMaxAmount}>Increase value</button>
-		</>
-	);
-}
+import ValueComponent from "./components/ValueComponent";
 
 function App() {
 	return (
 		<>
-			<MinValue />
-			<MaxValue />
+			<ValueComponent valueName={"Min"} />
+			<ValueComponent valueName={"Max"} />
 		</>
 	);
 }

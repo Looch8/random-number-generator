@@ -1,19 +1,32 @@
 import { useState } from "react";
 import "./App.css";
 
-function Numbers() {
-	const [numberOne, setNumberOne] = useState(0);
-	const [numberTwo, setNumberTwo] = useState(0);
+function MinValue() {
+	const [minValue, setMinValue] = useState(0);
 
-	const numberButtonClick = () => {
-		return setNumberOne(numberOne + 1);
+	const handleMinAmount = () => {
+		return setMinValue(minValue + 1);
 	};
 
 	return (
 		<>
-			<h3>Number one: {numberOne}</h3>{" "}
-			<button onClick={numberButtonClick}>Increase number</button>
-			<h3>Number two: {numberTwo}</h3>
+			<h3>Min number: {minValue}</h3>{" "}
+			<button onClick={handleMinAmount}>Increase value</button>
+		</>
+	);
+}
+
+function MaxValue() {
+	const [maxValue, setMaxValue] = useState(0);
+
+	const handleMaxAmount = () => {
+		return setMaxValue(maxValue + 1);
+	};
+
+	return (
+		<>
+			<h3>Max number: {maxValue}</h3>{" "}
+			<button onClick={handleMaxAmount}>Increase value</button>
 		</>
 	);
 }
@@ -21,7 +34,8 @@ function Numbers() {
 function App() {
 	return (
 		<>
-			<Numbers />
+			<MinValue />
+			<MaxValue />
 		</>
 	);
 }

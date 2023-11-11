@@ -1,11 +1,58 @@
 import "./App.css";
+import { useState } from "react";
 import ValueComponent from "./components/ValueComponent";
 
+function GenerateNumber({ generateRandomNumber, onGenerate }) {
+	const handleGenerate = () => {
+		const randomNum = generateRandomNumber();
+		onGenerate(randomNum);
+	};
+
+	return <button onClick={handleGenerate}>Generate</button>;
+}
+
 function App() {
+	const [min, setMin] = useState(0);
+	const [max, setMax] = useState(0);
+	const [generatedNumber, setGeneratedNumber] = useState(null);
+
+	const handleMinChange = (newValue) => {
+		setMin(newValue);
+	};
+
+	const handleMaxChange = (newValue) => {
+		setMax(newValue);
+	};
+
+	const generateRandomNumber = () => {
+		return Math.random() * (max - min) + min;
+	};
+
+	const handleGenerate = (number) => {
+		setGeneratedNumber(number);
+	};
+
 	return (
 		<>
-			<ValueComponent valueName={"Min"} />
-			<ValueComponent valueName={"Max"} />
+			<ValueComponent
+				valueName={"Min"}
+				value={min}
+				onValueChange={handleMinChange}
+			/>
+			<ValueComponent
+				valueName={"Max"}
+				value={max}
+				onValueChange={handleMaxChange}
+			/>
+			<h2>
+				<GenerateNumber
+					generateRandomNumber={generateRandomNumber}
+					onGenerate={handleGenerate}
+				/>
+			</h2>
+			{generatedNumber !== null && (
+				<p>Generated Number: {generatedNumber.toFixed(0)}</p>
+			)}
 		</>
 	);
 }

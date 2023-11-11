@@ -1,15 +1,11 @@
-import { useState } from "react";
-
-function ValueComponent({ valueName }) {
-	const [value, setValue] = useState(0);
-
+function ValueComponent({ valueName, value, onValueChange }) {
 	const increaseValue = () => {
-		return setValue(value + 1);
+		return onValueChange(value + 1);
 	};
 
 	const decreaseValue = () => {
 		// Value can not be decreased less than 0
-		if (value > 0) return setValue(value - 1);
+		if (value > 0) return onValueChange(value - 1);
 	};
 
 	return (

@@ -14,11 +14,11 @@ function ValueComponent({ valueName }) {
 
 	return (
 		<>
-			<h3>
+			<h2>
 				{valueName} number: {value}
-				<button onClick={increaseValue}>Increase value</button>
-				<button onClick={decreaseValue}>Decrease value</button>
-			</h3>
+			</h2>
+			<button onClick={increaseValue}>Increase value</button>
+			<button onClick={decreaseValue}>Decrease value</button>
 		</>
 	);
 }

@@ -1,15 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import ValueComponent from "./components/ValueComponent";
-
-function GenerateNumber({ generateRandomNumber, onGenerate }) {
-	const handleGenerate = () => {
-		const randomNum = generateRandomNumber();
-		onGenerate(randomNum);
-	};
-
-	return <button onClick={handleGenerate}>Generate</button>;
-}
+import GenerateNumber from "./components/GenerateNumber";
 
 function App() {
 	const [min, setMin] = useState(0);
